@@ -12,7 +12,7 @@ public interface UsuarioDAO {
 
 	public Usuario carregar(Integer codigo);
 
-	public Usuario buscar(String login);
+	public Usuario buscarPorLogin(String login);
 
 	public List<Usuario> listar();
 
