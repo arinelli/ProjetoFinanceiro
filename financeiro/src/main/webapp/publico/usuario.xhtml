@@ -12,6 +12,7 @@
 		<h:messages/> 
 		<h:inputHidden value="#{usuarioBean.usuario.codigo}"/> 
 		<h:inputHidden value="#{usuarioBean.usuario.ativo}"/>
+		<h:inputHidden value="#{usuarioBean.destinoSalvar}"/>
 					
 		<h:panelGrid columns="2">
 			<h:outputLabel value="Nome:" for="nome"/>
@@ -66,7 +67,7 @@
 				size="10" maxlength="10" required="true" redisplay="true"/>
 		</h:panelGrid>
 			
-		<h:commandButton action="#{usuarioBean.salv ar}" value="Salvar"/>
+		<h:commandButton action="#{usuarioBean.salvar}" value="Salvar"/>
 	</h:form>
 </h:body>
 </html>

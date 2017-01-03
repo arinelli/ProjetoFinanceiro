@@ -2,6 +2,11 @@ package br.com.javaparaweb.financeiro.util;
 
 public class RNException extends Exception {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4966751484514669135L;
+
 	public RNException() {
 		// TODO Auto-generated constructor stub
 	}

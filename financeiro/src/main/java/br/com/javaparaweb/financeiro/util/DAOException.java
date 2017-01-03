@@ -2,6 +2,11 @@ package br.com.javaparaweb.financeiro.util;
 
 public class DAOException extends Exception {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -684579319015329287L;
+
 	public DAOException() {
 		// TODO Auto-generated constructor stub
 	}
