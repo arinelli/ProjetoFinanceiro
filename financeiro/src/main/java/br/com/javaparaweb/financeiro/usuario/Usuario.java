@@ -2,10 +2,18 @@ package br.com.javaparaweb.financeiro.usuario;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.UniqueConstraint;
+
+import javax.persistence.JoinColumn;
 
 import org.hibernate.annotations.NaturalId;
 
@@ -29,12 +37,18 @@ public class Usuario implements Serializable {
 	private String idioma;
 	private boolean ativo;
 
+	@ElementCollection(targetClass = String.class)
+	@JoinTable(name = "usuario_permissao", uniqueConstraints = {
+			@UniqueConstraint(columnNames = { "usuario", "permissao" }) }, joinColumns = @JoinColumn(name = "usuario"))
+	@Column(name = "permissao", length = 50)
+	private Set<String> permissao = new HashSet<String>();
+
 	public Usuario() {
 		super();
 	}
 
 	public Usuario(Integer codigo, String nome, String email, String login, String senha, Date nascimento,
-			String celular, String idioma, boolean ativo) {
+			String celular, String idioma, boolean ativo, Set<String> permissao) {
 		super();
 		this.codigo = codigo;
 		this.nome = nome;
@@ -45,6 +59,7 @@ public class Usuario implements Serializable {
 		this.celular = celular;
 		this.idioma = idioma;
 		this.ativo = ativo;
+		this.permissao = permissao;
 	}
 
 	public Integer getCodigo() {
@@ -119,6 +134,18 @@ public class Usuario implements Serializable {
 		this.ativo = ativo;
 	}
 
+	public Set<String> getPermissao() {
+		return permissao;
+	}
+
+	public void setPermissao(Set<String> permissao) {
+		this.permissao = permissao;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -131,6 +158,7 @@ public class Usuario implements Serializable {
 		result = prime * result + ((login == null) ? 0 : login.hashCode());
 		result = prime * result + ((nascimento == null) ? 0 : nascimento.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		result = prime * result + ((permissao == null) ? 0 : permissao.hashCode());
 		result = prime * result + ((senha == null) ? 0 : senha.hashCode());
 		return result;
 	}
@@ -181,6 +209,11 @@ public class Usuario implements Serializable {
 				return false;
 		} else if (!nome.equals(other.nome))
 			return false;
+		if (permissao == null) {
+			if (other.permissao != null)
+				return false;
+		} else if (!permissao.equals(other.permissao))
+			return false;
 		if (senha == null) {
 			if (other.senha != null)
 				return false;
@@ -188,5 +221,7 @@ public class Usuario implements Serializable {
 			return false;
 		return true;
 	}
+
+	
 
 }
