@@ -1,0 +1,9 @@
+//cria primeiro o database 
+
+create database financeiro;
+use financeiro;
+
+//roda o programa para eles gerar tabelas automaticamente com o hibernate e depois atribui um usuario com o acesso ao administrador
+
+insert into usuario(codigo,ativo,login,nome,senha) values(null,1,'mestrao','Andre','6425259');
+insert into usuario_permissao values(1,'ROLE_ADMINISTRADOR');
