@@ -61,6 +61,14 @@ public class Usuario implements Serializable {
 		this.ativo = ativo;
 		this.permissao = permissao;
 	}
+	
+	
+	@Override
+	public String toString() {
+		return "Usuario [codigo=" + codigo + ", nome=" + nome + ", email=" + email + ", login=" + login + ", senha="
+				+ senha + ", nascimento=" + nascimento + ", celular=" + celular + ", idioma=" + idioma + ", ativo="
+				+ ativo + ", permissao=" + permissao + "]";
+	}
 
 	public Integer getCodigo() {
 		return codigo;
@@ -221,7 +229,5 @@ public class Usuario implements Serializable {
 			return false;
 		return true;
 	}
-
-	
 
 }
