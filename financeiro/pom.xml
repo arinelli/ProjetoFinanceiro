@@ -6,7 +6,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>Teste</name>
-<description>Gerenciador Financeiro Pessoal</description>
+	<description>Gerenciador Financeiro Pessoal</description>
 	<build>
 		<plugins>
 			<plugin>
@@ -82,21 +82,24 @@
 			<artifactId>commons-logging</artifactId>
 			<version>1.1.1</version>
 		</dependency>
-		<!-- 
-		Desde 02/06/2016 a biblioteca facelets-taglib-jsf20-spring-3
-		foi removida do repositorio do GoogleCode e ainda não foi 
-		recolocada no repositorio central do Maven
-		Enquanto isto não acontecer, estamos desativando esta dependencias
-		e utilizando uma alternativa nos códigos fontes, sem prejuizo ao
-		funcionamento do sistema
-		-->
-		<!--
+		<!-- Desde 02/06/2016 a biblioteca facelets-taglib-jsf20-spring-3 foi removida 
+			do repositorio do GoogleCode e ainda não foi recolocada no repositorio central 
+			do Maven Enquanto isto não acontecer, estamos desativando esta dependencias 
+			e utilizando uma alternativa nos códigos fontes, sem prejuizo ao funcionamento 
+			do sistema -->
+		
+		<!-- <dependency> <groupId>org.springframework.security</groupId> <artifactId>facelets-taglib-jsf20-spring-3</artifactId> 
+			<version>0.5</version> </dependency> -->
+
+
+		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-taglibs -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
-			<artifactId>facelets-taglib-jsf20-spring-3</artifactId>
-			<version>0.5</version>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>3.2.6.RELEASE</version>
 		</dependency>
- 		-->
+
+
 	</dependencies>
 
 </project>
